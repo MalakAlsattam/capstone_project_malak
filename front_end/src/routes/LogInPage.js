@@ -8,7 +8,7 @@ export default function LogInPage() {
     const [mypassword, setmypassword] = useState("")
     const [check, setCheck] = useState("")
    let myData={userName:myUsername, passWord:mypassword}
-   console.log(myData)
+  //cd  console.log(myData)
     useEffect(()=>{
         axios.get("api/user")
          .then(response=>{
@@ -18,14 +18,8 @@ export default function LogInPage() {
         })
         return()=>{}
       },[])
-    //   useEffect(()=>{
-    //     axios.post("api/user/add")
-    //      .then(res=>{
-    //        setCheck(res.data )
-           
-    //     })
-    //     return()=>{}
-    //   },[])
+    
+    
      function SignUp(){
        axios({
          method:"post",
@@ -56,7 +50,7 @@ export default function LogInPage() {
               <h2>log in:  </h2><br></br>
             userName <input type="text" name="userName"  onChange={(event) => { setmyUsername(event.target.value) }} /><br></br>
             password <input type="text" name ="password" onChange={(event) => { setmypassword(event.target.value) }}/><br></br>
-            <h3>{JSON.stringify(check)}</h3>
+            <h3>{check}</h3>
           
               
               <button onClick={SignUp}>Add</button>

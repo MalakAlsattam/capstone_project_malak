@@ -1,9 +1,8 @@
 package com.example.socialNetworkForMentalHealth.model.Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -15,12 +14,13 @@ public class User {
     @Column(updatable = false)
     private String passWord;
 
+@OneToMany(mappedBy = "user" )
+private List<Message> messages=new ArrayList<>();
 
-    public User( String userName, String passWord) {
-
+    public User(String userName, String passWord, List<Message> messages) {
         this.userName = userName;
         this.passWord = passWord;
-
+        this.messages = messages;
     }
 
     public User() {
@@ -43,6 +43,12 @@ public class User {
         this.passWord = passWord;
     }
 
+    public List<Message> getMessages() {
+        return messages;
+    }
 
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 }
 

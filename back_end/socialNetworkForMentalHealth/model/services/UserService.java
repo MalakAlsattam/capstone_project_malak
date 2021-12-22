@@ -24,7 +24,7 @@ public class UserService {
     }
     public Integer addNewUser(User user){
         if(userRepositry.existsById(user.getUserName())){
-            System.out.println("User already in database");
+            //System.out.println("User already in database");
             return 0;
         }
         else{

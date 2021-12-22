@@ -40,10 +40,10 @@ public class UserController {
     public String registerNewUser(@RequestBody User user){
         int result = userService.addNewUser(user);
         if(result == 0){
-          return "is there";
+          return "username already exist";
         }
         else{
-            return "log in ";
+            return "login successfully";
         }
     }
 
