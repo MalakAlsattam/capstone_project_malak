@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios"
 import { useState,useEffect} from "react";
-import { event } from "jquery";
+
 
 export default function LogInPage() {
     const [myUsername, setmyUsername] = useState("")

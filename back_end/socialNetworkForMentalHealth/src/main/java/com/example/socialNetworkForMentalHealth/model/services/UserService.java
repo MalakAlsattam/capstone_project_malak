@@ -34,20 +34,20 @@ public class UserService {
 
     }
 
-    public String checkLogin(String userName,String passWord){
-        if(userRepositry.existsById(userName)){
-            String pass= userRepositry.findPassword(userName);
-
-            if(pass.equals(passWord)){
-                return "authenticated";
-            }
-            else{
-                return "Nottt authenticated";
-            }
-
-        }
-        return "Not authenticated";
-    }
+//    public String checkLogin(String userName,String passWord){
+//        if(userRepositry.existsById(userName)){
+//            String pass= userRepositry.findPassword(userName);
+//
+//            if(pass.equals(passWord)){
+//                return "authenticated";
+//            }
+//            else{
+//                return "Nottt authenticated";
+//            }
+//
+//        }
+//        return "Not authenticated";
+//    }
     public void deleteUser(String userName) {
         userRepositry.deleteById(userName);}
 }

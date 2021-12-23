@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin (origins = "https://localhost:8080")
-@Controller
+@CrossOrigin (origins = "https://localhost:3002")
 
+@RestController
 public class MessageController {
 private MessageService messageService;
-
+    @Autowired
     public MessageController(MessageService messageService) {
         this.messageService = messageService;
     }
 
-    @Autowired
+
 
 
     @GetMapping("api/message")
@@ -29,11 +29,9 @@ private MessageService messageService;
         return messageService.getMessage();
     }
 
-
-
     @PostMapping("api/message/add")
 
-    public void registerNewUser(@RequestBody Message message) {
+    public void registerNewMessage(@RequestBody Message message) {
         messageService.addNewMessage(message);
     }
 

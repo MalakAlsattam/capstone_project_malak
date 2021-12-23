@@ -94,6 +94,7 @@ export default function App() {
         <Link to="/LogInPage">LogInPage</Link> |{" "}
         <Link to="/HomePage">HomePage</Link>|{" "}
         <Link to="/Chating">Chating</Link>|{" "}
+        <Link to="/Specialist">Specialist</Link>|{" "}
       </nav>
       <Outlet/>
     </div>

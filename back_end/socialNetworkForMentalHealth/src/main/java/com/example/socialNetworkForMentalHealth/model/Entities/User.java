@@ -1,5 +1,7 @@
 package com.example.socialNetworkForMentalHealth.model.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ public class User {
     private String passWord;
 
 @OneToMany(mappedBy = "user" )
+@JsonIgnore
 private List<Message> messages=new ArrayList<>();
 
     public User(String userName, String passWord, List<Message> messages) {

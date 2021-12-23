@@ -1,7 +1,5 @@
 package com.example.socialNetworkForMentalHealth.model.services;
-
 import com.example.socialNetworkForMentalHealth.model.Entities.Message;
-import com.example.socialNetworkForMentalHealth.model.Entities.User;
 import com.example.socialNetworkForMentalHealth.model.Repositry.MessageRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

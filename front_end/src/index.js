@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
 import LogInPage from "./routes/LogInPage";
 import HomePage from "./routes/HomePage";
-import Chating from "./routes/Chating"
+import Chating from "./routes/Chating";
+import Specialist from "./routes/Specialist"
 
 
 
@@ -15,7 +16,7 @@ ReactDOM.render(
         <Route path="LogInPage" element={<LogInPage />} />
         <Route path="HomePage" element={<HomePage />}></Route>
         <Route path="Chating" element={<Chating />}></Route>
-      
+        <Route path="Specialist" element={<Specialist />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
