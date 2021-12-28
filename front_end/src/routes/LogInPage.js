@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios"
 import { useState, useEffect } from "react";
-import { ClientState } from "stream-chat";
+
 
 
 export default function LogInPage() {
@@ -9,13 +9,13 @@ export default function LogInPage() {
   const [mypassword, setmypassword] = useState("")
   const [check, setCheck] = useState("")
   let myData = { userName: myUsername, passWord: mypassword }
-  //cd  console.log(myData)
+  
   useEffect(() => {
     axios.get("api/user")
       .then(response => {
-        console.log(response.data)
-        setmyUsername(response.data[0])
-        setmypassword(response.data[0])
+        //console.log(response.data)
+        setmyUsername(response.data)
+        setmypassword(response.data)
       })
     return () => { }
   }, [])
@@ -48,16 +48,7 @@ export default function LogInPage() {
       .then(() => setmyUsername("Delete successful"));
   }
 
-
-
-
   return (
-
-
-
-
-
-
 
 
     <div>

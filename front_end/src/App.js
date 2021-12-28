@@ -98,6 +98,8 @@ export default function App() {
         <Link to="/Chats">Chats</Link>|{" "}
         <Link to="/Specialist">Specialist</Link>|{" "}
         <Link to="/AllSpecialist">AllSpecialist</Link>|{" "}
+        <Link to="/Post">Post</Link>|{" "}
+        <Link to="/AllPost">AllPost</Link>|{" "}
       </nav>
       <Outlet/>
     </div>

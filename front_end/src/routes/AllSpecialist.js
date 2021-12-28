@@ -5,15 +5,14 @@
 
 // export default function AllSpecialist() {
 
-//     const [data, setData] = useState([{ specialistName: "", email: "", image: "", phone: "", moreInfo: "" }])
+//     const[data, setData] = useState([{ specialistName: "", email: "", image: "", phone: "", moreInfo: "" }])
 
-//     // useEffect(() => { axios.get("api/specialist")  .then(response => setData(response.data));
-
-//     //     }
-//     // },[data]);
-
+//     useEffect(() => {
+//         axios.get("api/specialist")  
+//         .then(response => setData(response.data));
 
 
+//     },[data]);}
 
 //     function deleteSpecialist(specialistName) {
 //         console.log("inside deleteHandler")
@@ -24,7 +23,7 @@
 //         //     this.setData({ data });
 
 //         // })
-//     }
+
 //     return (
 //         <div>
 
@@ -62,19 +61,20 @@
 
 import React, { Component } from "react";
 import axios, { Axios } from "axios"
+import { Card } from "stream-chat-react";
 
 export default class AllSpecialist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Specialist: [],
+            specialist: [],
         };
     }
 
     componentDidMount() {
         axios.get("api/specialist").then(response => {
-            const Specialist = response.data
-            this.setState({ Specialist });
+            const specialist = response.data
+            this.setState({ specialist });
 
         });
     }
@@ -82,45 +82,83 @@ export default class AllSpecialist extends Component {
         console.log("inside deleteHandler")
         axios.delete(`/api/specialist/delete/${specialistName}`)
             .then(res => {
-
-                const Specialist = this.state.Specialist.filter(item => item.specialistName !== specialistName);
-                this.setState({ Specialist });
+                const specialist = this.state.specialist.filter(item => item.specialistName !== specialistName);
+                this.setState({ specialist });
 
             })
     }
     render() {
-        return (
-            <div>
+                return (
+                    <div>
 
-                <table >
-                    <thead>
-                        <tr>
-                            <th >specialistName</th>
-                            <th >Email</th>
-                            <th >phone</th>
-                            <th >image</th>
-                            <th >moreInfo</th>
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th >specialistName</th>
+                                    <th >Email</th>
+                                    <th >phone</th>
+                                    <th >image</th>
+                                    <th >moreInfo</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.Specialist.map((item => (
-                            <tr key={item.specialistName}>
-                                <td>{item.specialistName}</td>
-                                <td>{item.email}</td>
-                                <td>{item.phone}</td>
-                                <td><img height="100" width="100" src={item.image} /></td>
-                                <td>{item.moreInfo}</td>
-                                <td><button >DM</button></td>
-                                <td><button onClick={(e) => this.deleteSpecialist(item.specialistName, e)}>delete</button></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.specialist.map((item => (
+                                    <tr key={item.specialistName}>
+                                        <td>{item.specialistName}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.phone}</td>
+                                        <td><img height="100" width="100" src={item.image} /></td>
+                                        <td>{item.moreInfo}</td>
+                                        <td><button >DM</button></td>
+                                        <td><button onClick={(e) => this.deleteSpecialist(item.specialistName, e)}>delete</button></td>
 
-                            </tr>
-                        )))
-                        }
-                    </tbody>
-                </table>
-            </div>
+                                    </tr>
+                                )))
+                                }
+                            </tbody>
+                        </table>
+                    </div>
 
-        );
-    }
-}
+                );
+            }
+        }
+
+   //     return (
+    //        <div>
+
+
+                {/* <tr>
+                    <th >specialistName</th>
+                    <th >Email</th>
+                    <th >phone</th>
+                    <th >image</th>
+                    <th >moreInfo</th>
+
+                </tr> */}
+
+        
+// {this.state.Specialist.map((item => (
+//                     key = { item.specialistName }
+//                     < Card style = {{ width: '18rem' }}>
+//                 <Card.Img variant="top" src="holder.js/100px180" />
+//                 <Card.Body>
+               
+//                     <Card.image><img height="100" width="100" src={item.image} /></Card.image>
+//                     <Card.Title> {item.specialistName}</Card.Title>
+//                     <Card.email>{item.email}</Card.email>
+//                     <Card.phone>{item.phone}</Card.phone>
+//                     <Card.Text>{item.moreInfo}</Card.Text>
+//                     <Button variant="primary">Dm</Button>
+//                     <Button variant="primary" onClick={(e) => this.deleteSpecialist(item.specialistName, e)}>Delete</Button>
+//                 </Card.Body>
+//             </Card>  
+//         )))
+//     }
+          
+//     </div>
+
+// );
+// }
+// }
+

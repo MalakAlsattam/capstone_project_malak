@@ -21,6 +21,8 @@ public class Specialist {
 
     @OneToMany(mappedBy = "specialist" )
     private List<Message> messages=new ArrayList<>();
+    @OneToMany(mappedBy = "specialist" )
+    private List<Post> post=new ArrayList<>();
 
 
     public Specialist(String specialistName, String password, String email, String image, int phone, String moreInfo) {

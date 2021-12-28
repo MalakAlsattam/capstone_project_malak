@@ -1,16 +1,15 @@
 import React from "react";
 import axios from "axios"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 export default function Specialist() {
-  const [specialist, setSpecialist] = useState("")
-  const [delet, setDelet] = useState("")
   const [specialistName, setSpecialistName] = useState("")
   const [email, setEmail] = useState("")
   const [image, setimage] = useState("")
   const [phone, setphone] = useState("")
   const [moreInfo, setmoreInfo] = useState("")
+
   let myData = {
     specialistName: specialistName,
     email: email,
@@ -18,23 +17,6 @@ export default function Specialist() {
     phone: phone,
     moreInfo: moreInfo
   }
-
-
-  // useEffect(() => {
-
-  //   axios.get("api/specialist")
-  //     .then(response => {
-  //       //  console.log(response.data)
-  //       myData(response.data)
-
-  //     })
-  //   return () => { }
-  // }, [])
-  // const deleteUser=(index)=>{
-  //   const wl =[...specialistName]
-  //   wl.splice(index,1)
-  //   setSpecialistName(wl)
-  //     }
 
   function post() {
     console.log("in ")
@@ -48,21 +30,10 @@ export default function Specialist() {
     });
   }
 
-
-
   return (
 
-
-
-
-
-
-
-
     <div>
-
-
-      <h2>log in:  </h2><br></br>
+      <h2>Specialist log in:  </h2><br></br>
       specialist Name <input type="text" name="specialistName" onChange={(event) => { setSpecialistName(event.target.value) }} /><br></br>
       Email <input type="text" name="email" onChange={(event) => { setEmail(event.target.value) }} /><br></br>
       image<input type="text" name="image" onChange={(event) => { setimage(event.target.value) }} /><br></br>
