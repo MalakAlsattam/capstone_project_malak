@@ -79,8 +79,10 @@
 // }
 import React from "react";
 import {Outlet, Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function App() {
+  
   return (
     <div>
       <h1>socialNetworkForMentalHealth</h1>
@@ -93,8 +95,9 @@ export default function App() {
    
         <Link to="/LogInPage">LogInPage</Link> |{" "}
         <Link to="/HomePage">HomePage</Link>|{" "}
-        <Link to="/Chating">Chating</Link>|{" "}
+        <Link to="/Chats">Chats</Link>|{" "}
         <Link to="/Specialist">Specialist</Link>|{" "}
+        <Link to="/AllSpecialist">AllSpecialist</Link>|{" "}
       </nav>
       <Outlet/>
     </div>

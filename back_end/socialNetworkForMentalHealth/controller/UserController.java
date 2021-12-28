@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin (origins = "https://localhost:3002")
+//@CrossOrigin (origins = "https://localhost:3002")
 @RestController
 public class UserController {
     private UserService userService;
@@ -45,7 +45,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping(path = "delete/{userName}")
+    @DeleteMapping(path = "api/user/delete/{userName}")
     public void deleteUser(@PathVariable ("userName") String userName){
         userService.deleteUser(userName);
     }
