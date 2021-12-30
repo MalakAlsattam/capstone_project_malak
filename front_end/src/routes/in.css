@@ -1,7 +1,19 @@
-.center {
-    margin: auto;
-    width: 60%;
-    border: 3px solid #73AD21;
-    padding: 10px;
+/* _grid.scss:6 */
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    background-color: gray;
+    padding: 10px; grid-column-gap: 50px;
+    
   }
+  .item{ grid-column: 2; text-align:left; }
+  .img{width: 50; height: 50;}
+  .but{
+    
+  }
+  /* _print.scss:95 */
+  /* .container {
+    min-width: $print-body-min-width !important;
+  } */
   

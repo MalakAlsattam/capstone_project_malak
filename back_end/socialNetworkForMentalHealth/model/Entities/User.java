@@ -19,6 +19,9 @@ public class User {
 @OneToMany(mappedBy = "user" )
 @JsonIgnore
 private List<Message> messages=new ArrayList<>();
+    @OneToMany(mappedBy = "user" )
+    @JsonIgnore
+    private List<PersonalExperience> personalExperience=new ArrayList<>();
 
     public User(String userName, String passWord, List<Message> messages) {
         this.userName = userName;

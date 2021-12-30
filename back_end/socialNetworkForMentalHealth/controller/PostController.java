@@ -33,7 +33,7 @@ public class PostController {
     }
 
     @DeleteMapping(path = "api/post/delete/{title}")
-    public void deleteSpecialist(@PathVariable ("title") String title){
+    public void deletePost(@PathVariable ("title") String title){
         postServices.deletePost(title);
     }
 

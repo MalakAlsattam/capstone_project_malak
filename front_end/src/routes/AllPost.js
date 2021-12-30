@@ -39,7 +39,8 @@ export default class AllPost extends Component {
                                     
                                     <th >image</th>
                                    <th >SpecialistName</th> 
-
+                                   <th >Email</th>
+                                   <th >phone</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,8 @@ export default class AllPost extends Component {
                                         <td>{item.text}</td>
                                         <td><img height="100" width="100" src={item.image} /></td>
                                         <td>{item.specialist.specialistName}</td>
+                                        <td>{item.specialist.email}</td>
+                                        <td>{item.specialist.phone}</td>
                                         <td><button onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</button></td>
 
                                     </tr>
