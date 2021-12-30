@@ -1,9 +1,7 @@
 package com.example.socialNetworkForMentalHealth.controller;
 
 import com.example.socialNetworkForMentalHealth.model.Entities.PersonalExperience;
-import com.example.socialNetworkForMentalHealth.model.Entities.Post;
 import com.example.socialNetworkForMentalHealth.model.services.PersonalExperienceService;
-import com.example.socialNetworkForMentalHealth.model.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +32,9 @@ public class PersonalExperienceController {
     }
 
     @DeleteMapping(path = "api/PersonalEx/delete/{id}")
-    public void deletePersonalEx(@PathVariable ("id") Integer id){
-        personalExperienceService.deletePersonalEx(id);
+    public void deletePersonalEx(@PathVariable ("id") String id){
+        int PersonalExId=Integer.parseInt(id);
+        personalExperienceService.deletePersonalEx(PersonalExId);
     }
 
 

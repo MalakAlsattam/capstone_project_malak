@@ -15,7 +15,7 @@ public class User {
     private String userName;
     @Column(updatable = false)
     private String passWord;
-
+    private String roll;
 @OneToMany(mappedBy = "user" )
 @JsonIgnore
 private List<Message> messages=new ArrayList<>();
@@ -23,15 +23,45 @@ private List<Message> messages=new ArrayList<>();
     @JsonIgnore
     private List<PersonalExperience> personalExperience=new ArrayList<>();
 
-    public User(String userName, String passWord, List<Message> messages) {
+    @OneToMany(mappedBy = "user" )
+    @JsonIgnore
+    private List<Comments> comments=new ArrayList<>();
+
+    public User(String userName, String passWord, String roll, List<Message> messages, List<PersonalExperience> personalExperience, List<Comments> comments) {
         this.userName = userName;
         this.passWord = passWord;
+        this.roll = roll;
         this.messages = messages;
+        this.personalExperience = personalExperience;
+        this.comments = comments;
     }
 
     public User() {
     }
 
+    public List<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public String getRoll() {
+        return roll;
+    }
+
+    public void setRoll(String roll) {
+        this.roll = roll;
+    }
+
+    public List<PersonalExperience> getPersonalExperience() {
+        return personalExperience;
+    }
+
+    public void setPersonalExperience(List<PersonalExperience> personalExperience) {
+        this.personalExperience = personalExperience;
+    }
 
     public String getUserName() {
         return userName;

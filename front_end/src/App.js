@@ -100,6 +100,8 @@ export default function App() {
         <Link to="/AllSpecialist">AllSpecialist</Link>|{" "}
         <Link to="/Post">Post</Link>|{" "}
         <Link to="/AllPost">AllPost</Link>|{" "}
+        <Link to="/PersonalExperience">PersonalExperience</Link>|{" "}
+        <Link to="/AllPersonalExperience">AllPersonalExperience</Link>|{" "}
       </nav>
       <Outlet/>
     </div>
