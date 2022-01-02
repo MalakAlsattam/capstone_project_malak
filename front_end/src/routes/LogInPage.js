@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 
 
 
-export default function LogInPage() {
+export default function LogInPage(props) {
   const [myUsername, setmyUsername] = useState("")
   const [mypassword, setmypassword] = useState("")
   const [check, setCheck] = useState("")
-  let myData = { userName: myUsername, passWord: mypassword }
+  let myData = { userName: myUsername, password: mypassword }
   
   useEffect(() => {
     axios.get("api/user")
@@ -21,15 +21,15 @@ export default function LogInPage() {
   }, [])
 
 
-  function SignUp() {
-    axios({
-      method: "post",
-      url: "api/user/add",
-      data:
-        myData
+  // function SignUp() {
+  //   axios({
+  //     method: "post",
+  //     url: "api/user/add",
+  //     data:
+  //       myData
 
-    }).then(response => { setCheck(response.data) })
-  }
+  //   }).then(response => { setCheck(response.data) })
+  // }
 
   function SignIn() {
     axios({
@@ -54,15 +54,15 @@ export default function LogInPage() {
     <div>
 
 
-      <h2>log in:  </h2><br></br>
+      <h2>log in:  </h2><br></br> <th>
       userName <input type="text" name="userName" onChange={(event) => { setmyUsername(event.target.value) }} /><br></br>
       password <input type="text" name="password" onChange={(event) => { setmypassword(event.target.value) }} /><br></br>
-      <h3>{check}</h3>
+      <h3>{check}</h3></th>
 
       <button onClick={SignIn}>Sign In</button>
-      <button onClick={SignUp}>Sign Up</button>
+      {/* <button onClick={SignUp}>Sign Up</button> */}
       <button onClick={deleteUser}>delete your account </button>
-
+     
     </div>
   );
 

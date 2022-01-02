@@ -44,6 +44,7 @@ export default class AllPost extends Component {
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 {this.state.Post.map((item => (
                                     <tr key={item.title}>
                                         <td>{item.title}</td>

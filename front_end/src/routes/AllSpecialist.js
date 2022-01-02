@@ -77,6 +77,7 @@ export default class AllSpecialist extends Component {
     }
 
     componentDidMount() {
+        
         axios.get("api/specialist").then(response => {
             const specialist = response.data
             this.setState({ specialist });

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import axios, { Axios } from "axios"
-
+import Container from 'react-bootstrap/Container';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Card from 'react-bootstrap/Card'
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button';
+import './in.css'
 
 export default class AllPersonalExperience extends Component {
     constructor(props) {
@@ -28,34 +33,58 @@ export default class AllPersonalExperience extends Component {
     }
     render() {
         return (
-            <div>
-
-                <table >
-                    <thead>
-                        <tr>
-
-                            <th >Text</th> 
-                            <th >image</th>
-                            <th >userName</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.personalExperience.map((item => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.text}</td>
-                                <td><img height="100" width="100" src={item.image} /></td>
-                                <td>{item.user.userName}</td>
-                                <td><input type='text'></input></td>
-                                <td><button onClick={(e) => this.deletepersonalExperience(item.id, e)}>delete</button></td>
-
+            
+                <div>
+    
+                    {/* <table >
+                        <thead>
+                            <tr>
+    
+                                <th >Text</th> 
+                                <th >image</th>
+                                <th >userName</th> 
                             </tr>
+                        </thead>
+                        <tbody> */}
+                    <Container className="Container" >
+                        {this.state.personalExperience.map((item => (
+                            <CardGroup key={item.id}>
+                                <Card className="item"  >
+                                    <Card.Img height="100" width="100" src={item.image} />
+                                    <Card.Body  >
+                                        <Card.Title>{item.user.userName}</Card.Title>
+                                        <Card.Text>{item.text}</Card.Text>
+    
+                                        {/* <Card.Text><input placeholder="commits" type='text'></input>
+                                        <button >send</button></Card.Text> */}
+    
+                                        <Button variant="btn btn-secondary btn-lg" onClick={(e) => this.deletepersonalExperience(item.id, e)}>delete</Button>
+    
+                                        {/* </tr> */}
+                                    </Card.Body>
+                                </Card>
+                            </CardGroup>
                         )))
                         }
-                    </tbody>
-                </table>
-            </div>
-
-        );
+                        {/* </tbody>
+                    </table> */}
+                    </Container>
+                </div>
+    
+    
+            );
+        }
     }
-}
+    
+     
+    
+    
+    
+    
+                         
+                 
+
+
+
+            
+ 

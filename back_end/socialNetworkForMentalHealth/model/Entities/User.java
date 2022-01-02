@@ -14,8 +14,9 @@ public class User {
     @Column(updatable = false)
     private String userName;
     @Column(updatable = false)
-    private String passWord;
-    private String roll;
+    private String password;
+    private boolean active;
+    private String roles;
 @OneToMany(mappedBy = "user" )
 @JsonIgnore
 private List<Message> messages=new ArrayList<>();
@@ -27,10 +28,11 @@ private List<Message> messages=new ArrayList<>();
     @JsonIgnore
     private List<Comments> comments=new ArrayList<>();
 
-    public User(String userName, String passWord, String roll, List<Message> messages, List<PersonalExperience> personalExperience, List<Comments> comments) {
+    public User(String userName, String password, boolean active, String roles, List<Message> messages, List<PersonalExperience> personalExperience, List<Comments> comments) {
         this.userName = userName;
-        this.passWord = passWord;
-        this.roll = roll;
+        this.password = password;
+        this.active = active;
+        this.roles = roles;
         this.messages = messages;
         this.personalExperience = personalExperience;
         this.comments = comments;
@@ -47,12 +49,20 @@ private List<Message> messages=new ArrayList<>();
         this.comments = comments;
     }
 
-    public String getRoll() {
-        return roll;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setRoll(String roll) {
-        this.roll = roll;
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
     public List<PersonalExperience> getPersonalExperience() {
@@ -71,12 +81,12 @@ private List<Message> messages=new ArrayList<>();
         this.userName = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Message> getMessages() {

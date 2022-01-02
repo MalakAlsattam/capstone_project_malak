@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table
 public class Comments  {
     @Id
+
     private int id;
     private String comment;
     @ManyToOne
