@@ -12,6 +12,7 @@ import PersonalExperience from "./routes/PersonalExperience"
 import Post from "./routes/Post"
 import AllPost from "./routes/AllPost"
 import AllPersonalExperience from "./routes/AllPersonalExperience"
+import AllSpecialistAdmin from './routes/AllSpecialitAdmin';
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="Chats" element={<Chats />}></Route>
         <Route path="Specialist" element={<Specialist />}></Route>
         <Route path="AllSpecialist" element={<AllSpecialist />}></Route>
+        <Route path="AllSpecialistAdmin" element={<AllSpecialistAdmin />}></Route>
         <Route path="Post" element={<Post />}></Route>
         <Route path="AllPost" element={<AllPost />}></Route>
         <Route path="PersonalExperience" element={<PersonalExperience />}></Route>

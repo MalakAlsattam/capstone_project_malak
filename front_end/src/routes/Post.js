@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios"
 import { useState } from "react";
-
+import LogInPage from "./LogInPage";
 
 export default function Post() {
   const [title, setTitle] = useState("")
@@ -31,7 +31,7 @@ export default function Post() {
   }
 
   return (
-
+    
     <div>
       <h2>Add Post:  </h2><br></br>
      title <input type="text" name="specialistName" onChange={(event) => { setTitle(event.target.value) }} /><br></br>

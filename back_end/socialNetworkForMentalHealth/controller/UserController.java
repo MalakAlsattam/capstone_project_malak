@@ -27,11 +27,11 @@ public class UserController {
         return userService.getUser();
     }
 
-//    @GetMapping("api/user/login")
-//    public String CheckLogin(@RequestParam(name="userName") String userName, @RequestParam(name="passWord")String passWord){
-//
-//        return userService.checkLogin(userName,passWord);
-//    }
+    @GetMapping("api/user/login")
+    public String CheckLogin(@RequestParam(name="userName") String userName, @RequestParam(name="password")String password){
+
+        return userService.checkLogin(userName,password);
+    }
 
     @PostMapping("api/user/add")
     @ResponseBody

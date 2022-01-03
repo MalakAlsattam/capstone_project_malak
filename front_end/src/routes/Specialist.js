@@ -17,6 +17,12 @@ export default function Specialist() {
     phone: phone,
     moreInfo: moreInfo
   }
+  axios({
+    method:'post',
+    url:'api/specialist/add',
+   
+    config: { headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+   })
 
   function post() {
     console.log("in ")

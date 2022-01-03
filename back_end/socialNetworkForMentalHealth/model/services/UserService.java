@@ -3,9 +3,9 @@ package com.example.socialNetworkForMentalHealth.model.services;
 import com.example.socialNetworkForMentalHealth.model.Entities.User;
 import com.example.socialNetworkForMentalHealth.model.Repositry.UserRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,20 +13,20 @@ import java.util.Optional;
 
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService  {
 
     private UserRepositry userRepositry;
     @Autowired     //create obj when we need *must be her*
     public UserService(UserRepositry userRepositry) {
         this.userRepositry = userRepositry;
     }
-    public MyUserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Optional<User> user = userRepositry.findByUserName(userName);
-
-        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
-
-        return user.map(MyUserDetails::new).get();
-    }
+//    public MyUserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+//        Optional<User> user = userRepositry.findByUserName(userName);
+//
+//        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
+//
+//        return user.map(MyUserDetails::new).get();
+//    }
 
     public List<User> getUser() {
         return userRepositry.findAll();
@@ -44,20 +44,22 @@ public class UserService implements UserDetailsService {
 
     }
 
-//    public String checkLogin(String userName,String passWord){
-//        if(userRepositry.existsById(userName)){
-//            String pass= userRepositry.findPassword(userName);
-//
-//            if(pass.equals(passWord)){
-//                return "authenticated";
-//            }
-//            else{
-//                return "Nottt authenticated";
-//            }
-//
-//        }
-//        return "Not authenticated";
-//    }
+    public String checkLogin(String userName,String password){
+        if(userRepositry.existsById(userName)){
+            String pass= userRepositry.findPassword(userName);
+
+            if(pass.equals(password)){
+                String role= userRepositry.findRoles(userName);
+
+                return "authenticated"+ role;
+            }
+            else{
+                return "password Does not match";
+            }
+
+        }
+        return "please sign up";
+    }
     public void deleteUser(String userName) {
         userRepositry.deleteById(userName);}
 }

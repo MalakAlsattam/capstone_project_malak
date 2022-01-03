@@ -15,7 +15,7 @@ public class User {
     private String userName;
     @Column(updatable = false)
     private String password;
-    private boolean active;
+
     private String roles;
 @OneToMany(mappedBy = "user" )
 @JsonIgnore
@@ -31,7 +31,7 @@ private List<Message> messages=new ArrayList<>();
     public User(String userName, String password, boolean active, String roles, List<Message> messages, List<PersonalExperience> personalExperience, List<Comments> comments) {
         this.userName = userName;
         this.password = password;
-        this.active = active;
+
         this.roles = roles;
         this.messages = messages;
         this.personalExperience = personalExperience;
@@ -49,13 +49,7 @@ private List<Message> messages=new ArrayList<>();
         this.comments = comments;
     }
 
-    public boolean isActive() {
-        return active;
-    }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 
     public String getRoles() {
         return roles;
