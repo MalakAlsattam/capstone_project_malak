@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table
 public class Comments  {
     @Id
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String comment;
     @ManyToOne
@@ -17,8 +17,8 @@ public class Comments  {
     @JoinColumn(referencedColumnName = "id")
     private PersonalExperience personalExperience;
 
-    public Comments(int id, String comment, User user, PersonalExperience personalExperience) {
-        this.id = id;
+    public Comments( String comment, User user, PersonalExperience personalExperience) {
+
         this.comment = comment;
         this.user = user;
         this.personalExperience = personalExperience;

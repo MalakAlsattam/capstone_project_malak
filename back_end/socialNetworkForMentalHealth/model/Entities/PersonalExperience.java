@@ -10,6 +10,7 @@ import java.util.List;
 @Table
 public class PersonalExperience {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
     private String text ;
     private String image;
@@ -23,8 +24,8 @@ public class PersonalExperience {
     public PersonalExperience() {
     }
 
-    public PersonalExperience(int id, String text, String image, User user, List<Comments> comments) {
-        this.id = id;
+    public PersonalExperience( String text, String image, User user, List<Comments> comments) {
+
         this.text = text;
         this.image = image;
         this.user = user;

@@ -11,7 +11,6 @@ export default function PersonalExperience() {
   const [id, setId] = useState("")
 
   let myData = {
-    id:id,
     text: text,
     image: image,
     user:{userName:userName}

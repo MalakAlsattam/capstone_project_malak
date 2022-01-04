@@ -12,6 +12,7 @@ export default class AllPersonalExperience extends Component {
         super(props);
         this.state = {
             personalExperience: [],
+            comment:"",
         };
     }
 
@@ -30,7 +31,25 @@ export default class AllPersonalExperience extends Component {
                 this.setState({ personalExperience });
 
             })
-    }
+            
+    } 
+    sendPost = (pExpId, userName) => {
+        console.log(this.state.comment)
+        console.log("personal exp"+pExpId)
+          const myData = {
+              comment:this.state.comment,
+              personalExperience:{id:pExpId},
+              user:{userName:userName}
+        }
+           console.log(myData)    
+            axios({
+                method: "post",
+                url: "api/comment/add",
+                data:
+                myData
+          
+              });
+            }
     render() {
         return (
             
@@ -55,10 +74,12 @@ export default class AllPersonalExperience extends Component {
                                         <Card.Title>{item.user.userName}</Card.Title>
                                         <Card.Text>{item.text}</Card.Text>
     
-                                        {/* <Card.Text><input placeholder="commits" type='text'></input>
-                                        <button >send</button></Card.Text> */}
+                                        <Card.Text><input placeholder="comment" type='text'
+                                        onChange={(event) => { this.setState({comment: event.target.value})}} ></input>
+                                        <button onClick={()=>{this.sendPost(item.id, item.user.userName)}}>send</button></Card.Text>
     
-                                        <Button variant="btn btn-secondary btn-lg" onClick={(e) => this.deletepersonalExperience(item.id, e)}>delete</Button>
+                                        <Button variant="btn btn-secondary btn-lg" 
+                                        onClick={(e) => this.deletepersonalExperience(item.id, e)}> delete</Button>
     
                                         {/* </tr> */}
                                     </Card.Body>

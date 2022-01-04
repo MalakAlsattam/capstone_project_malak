@@ -5,7 +5,9 @@ import com.example.socialNetworkForMentalHealth.model.Repositry.CommentsRepositr
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CommentsService {
@@ -19,7 +21,17 @@ public class CommentsService {
         return commentsRepositry.findAll();
 
     }
-    public void addNewComments(Comments comments){
+    public List<Comments> checkComments(Integer personalExperienceId){
+       // List<Comments> comments = new ArrayList<>();
+            return commentsRepositry.findComments(personalExperienceId);
+        //return comments;
+    }
+
+
+
+
+
+            public void addNewComments(Comments comments){
 
         commentsRepositry.save(comments);
     }

@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepositry extends JpaRepository<User,String > {
-    Optional<User> findByUserName(String userName);
     @Query("SELECT roles FROM User  where userName = :userName")
     String findRoles(@Param("userName") String userName);
 

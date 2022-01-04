@@ -13,6 +13,7 @@ import Post from "./routes/Post"
 import AllPost from "./routes/AllPost"
 import AllPersonalExperience from "./routes/AllPersonalExperience"
 import AllSpecialistAdmin from './routes/AllSpecialitAdmin';
+import AllComments from './routes/AllComments'
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route path="AllPost" element={<AllPost />}></Route>
         <Route path="PersonalExperience" element={<PersonalExperience />}></Route>
         <Route path="AllPersonalExperience" element={<AllPersonalExperience />}></Route>
+        <Route path="AllComments" element={<AllComments />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
