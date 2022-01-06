@@ -1,22 +1,31 @@
- import React, { useRef, useState } from 'react';
-import bootstrap from 'bootstrap';
-import { Button } from 'bootstrap';
-import Card from 'react-bootstrap/Card'
-export default function Chats() {
+import { ChatEngine } from "react-chat-engine";
 
-    return(
-        <div>
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-</div>
-);
-}
+import ChatFeed from "./components/ChatFeed";
+import LoginForm from "./components/LoginForm";
+// import "./App.css";
+
+const projectID = "4b8583ee-3ba6-4b0d-a8ca-446ce1874e7c";
+
+const Chats = () => {
+  if (!localStorage.getItem("username")) return <LoginForm />;
+  //If there is no username in the localstorage and youre not logged in will render the LoginForm component
+  return (
+    <ChatEngine
+      height="100vh"
+      projectID={projectID}
+      userName={localStorage.getItem("username")}
+      userSecret={localStorage.getItem("password")}
+      renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+      onNewMessage={() =>
+        new Audio(
+          "https://chat-engine-assets.s3.amazonaws.com/click.mp3"
+        ).play()
+      }
+      // Sound for the new message being recieved
+    />
+  );
+};
+
+// infinite scroll, logout, more customizations...
+
+export default Chats;

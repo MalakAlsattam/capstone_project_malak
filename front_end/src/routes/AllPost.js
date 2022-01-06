@@ -53,7 +53,7 @@ export default class AllPost extends Component {
                                         <td>{item.specialist.specialistName}</td>
                                         <td>{item.specialist.email}</td>
                                         <td>{item.specialist.phone}</td>
-                                        <td><button onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</button></td>
+                                        {/* <td><button onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</button></td> */}
 
                                     </tr>
                                 )))

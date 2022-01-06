@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import './in.css'
+import { Outlet, Link } from "react-router-dom";
+import AllComments from "./AllComments";
 
 export default class AllPersonalExperience extends Component {
     constructor(props) {
@@ -13,10 +15,13 @@ export default class AllPersonalExperience extends Component {
         this.state = {
             personalExperience: [],
             comment:"",
+            personalExperienceId:[],
+           
         };
     }
 
     componentDidMount() {
+        
         axios.get("api/personalExperience").then(response => {
             const personalExperience = response.data
             this.setState({ personalExperience });
@@ -29,7 +34,7 @@ export default class AllPersonalExperience extends Component {
             .then(res => {
                 const personalExperience = this.state.personalExperience.filter(item => item.id !== id);
                 this.setState({ personalExperience });
-
+                
             })
             
     } 
@@ -50,6 +55,13 @@ export default class AllPersonalExperience extends Component {
           
               });
             }
+            //  changID=(personalExperienceId) => {
+            //     console.log("calling allcomments");
+            //    return <AllComments/>
+
+                  
+            //     }
+            
     render() {
         return (
             
@@ -66,6 +78,7 @@ export default class AllPersonalExperience extends Component {
                         </thead>
                         <tbody> */}
                     <Container className="Container" >
+                        
                         {this.state.personalExperience.map((item => (
                             <CardGroup key={item.id}>
                                 <Card className="item"  >
@@ -80,7 +93,9 @@ export default class AllPersonalExperience extends Component {
     
                                         <Button variant="btn btn-secondary btn-lg" 
                                         onClick={(e) => this.deletepersonalExperience(item.id, e)}> delete</Button>
-    
+                                       <Link to={`/${item.id}`}>
+                                        <Button  variant="btn btn-secondary btn-lg"> comments</Button>
+                                        </Link>
                                         {/* </tr> */}
                                     </Card.Body>
                                 </Card>

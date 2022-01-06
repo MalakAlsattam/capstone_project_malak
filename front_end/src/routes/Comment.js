@@ -1,3 +1,4 @@
+
 import React from "react";
 import axios from "axios"
 import Container from 'react-bootstrap/Container';
@@ -9,35 +10,33 @@ import './in.css'
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import changID from "./AllPersonalExperience"
-
-export default function AllComments() {
+export default function Comment() {
     const[comments, setcomments] = useState([])
     const[personalExperienceId, setID] = useState([])
+
+    console.log("in comments")
     let params = useParams();
-    
-    
     console.log(params.personalExperienceId)
         useEffect(() => {
-           
-            // console.log(path)
-            axios.get(`api/comment/${params.personalExperienceId}`)  
-            .then(response =>setcomments(response.data));
+            let path = `api/comment/${2}`;
+            console.log(path)
+            axios.get(path)  
+            .then(response => console.log(response.data));
         },[]);
 
-        
+      
+    // function changID(personalExperienceId){
+    //     setID(personalExperienceId)
+    // }
+    // componentDidMount(personalExperienceId) {
+    //     axios.get(`api/comment/${2}`).then(response => {
+    //         const Post = response.data
+    //         this.setState({ Post });
 
-    // // function changID(personalExperienceId){
-    // //     setID(personalExperienceId)
-    // // }
-    // // componentDidMount(personalExperienceId) {
-    // //     axios.get(`api/comment/${2}`).then(response => {
-    // //         const Post = response.data
-    // //         this.setState({ Post });
+    //     });
+    // }
 
-    // //     });
-    // // }
-
-    // // render() {
+    // render() {
         return (
             <div>
            
@@ -66,4 +65,3 @@ export default function AllComments() {
 
         );
     }
-
