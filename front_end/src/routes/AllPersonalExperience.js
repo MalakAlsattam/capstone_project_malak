@@ -25,17 +25,20 @@ export default class AllPersonalExperience extends Component {
         axios.get("api/personalExperience").then(response => {
             const personalExperience = response.data
             this.setState({ personalExperience });
+           
 
         });
     }
     deletepersonalExperience(id) {
+        let m=sessionStorage.getItem("logIn")
+        if(m=="authenticatedADMIN"){
         console.log("inside deleteHandler")
         axios.delete(`api/PersonalEx/delete/${id}`)
             .then(res => {
                 const personalExperience = this.state.personalExperience.filter(item => item.id !== id);
                 this.setState({ personalExperience });
                 
-            })
+            })}else {alert("your NOT ADMIN")}
             
     } 
     sendPost = (pExpId, userName) => {
@@ -82,14 +85,15 @@ export default class AllPersonalExperience extends Component {
                         {this.state.personalExperience.map((item => (
                             <CardGroup key={item.id}>
                                 <Card className="item"  >
-                                    <Card.Img height="100" width="100" src={item.image} />
+                                    <Card.Img height="300" width="100" src={item.image} />
                                     <Card.Body  >
                                         <Card.Title>{item.user.userName}</Card.Title>
-                                        <Card.Text>{item.text}</Card.Text>
+                                        <Card.Text  >{item.text }</Card.Text>
     
                                         <Card.Text><input placeholder="comment" type='text'
                                         onChange={(event) => { this.setState({comment: event.target.value})}} ></input>
-                                        <button onClick={()=>{this.sendPost(item.id, item.user.userName)}}>send</button></Card.Text>
+                                        <button type="button" class="btn btn-secondary btn-sm"
+                                         onClick={()=>{this.sendPost(item.id, item.user.userName)}}>send</button></Card.Text>
     
                                         <Button variant="btn btn-secondary btn-lg" 
                                         onClick={(e) => this.deletepersonalExperience(item.id, e)}> delete</Button>

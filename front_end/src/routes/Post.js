@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios"
 import { useState } from "react";
 import LogInPage from "./LogInPage";
-
+import '../index.css'
 export default function Post() {
   const [title, setTitle] = useState("")
   const [text, setText] = useState("")
@@ -32,13 +32,15 @@ export default function Post() {
 
   return (
     
-    <div>
+    <div class="PostBox">
       <h2>Add Post:  </h2><br></br>
+      <h5>
      title <input type="text" name="specialistName" onChange={(event) => { setTitle(event.target.value) }} /><br></br>
      Text <input type="text" name="Text" onChange={(event) => { setText(event.target.value) }} /><br></br>
       image<input type="text" name="image" onChange={(event) => { setimage(event.target.value) }} /><br></br>
       specialist Name <input type="text" name="specialistName" onChange={(event) => { setSpecialistName(event.target.value) }} /><br></br>
-      <button onClick={post}>post</button>
+      </h5>
+     <h2> <button  type="button" class="btn btn-outline-dark"  onClick={post}>post</button></h2>
 
 
     </div>

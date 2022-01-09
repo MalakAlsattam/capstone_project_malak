@@ -68,6 +68,7 @@ import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import './in.css'
+import { Alert } from "bootstrap";
 export default class AllSpecialist extends Component {
     constructor(props) {
         super(props);
@@ -85,13 +86,16 @@ export default class AllSpecialist extends Component {
         });
     }
     deleteSpecialist(specialistName) {
+        let m=sessionStorage.getItem("logIn")
+        if(m=="authenticatedADMIN"){
         console.log("inside deleteHandler")
         axios.delete(`/api/specialist/delete/${specialistName}`)
             .then(res => {
                 const specialist = this.state.specialist.filter(item => item.specialistName !== specialistName);
                 this.setState({ specialist });
 
-            })
+            })}
+            else {alert("your Not Admin")}
     }
     render() {
                 return (
@@ -110,6 +114,7 @@ export default class AllSpecialist extends Component {
                                 </tr>
                             </thead>
                             <tbody> */}
+                            
                             <Container className="Container" >
                                 {this.state.specialist.map((item => (
                                       

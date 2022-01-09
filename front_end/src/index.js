@@ -1,30 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import './index.css'
 import App from './App';
 import LogInPage from "./routes/LogInPage";
 import HomePage from "./routes/HomePage";
-import Chats from "./routes/Chats";
 import Specialist from "./routes/Specialist"
 import AllSpecialist from "./routes/AllSpecialist"
 import PersonalExperience from "./routes/PersonalExperience"
 import Post from "./routes/Post"
 import AllPost from "./routes/AllPost"
 import AllPersonalExperience from "./routes/AllPersonalExperience"
-import AllSpecialistAdmin from './routes/AllSpecialitAdmin';
 import AllComments from './routes/AllComments'
-import Comment from './routes/Comment'
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="LogInPage" element={<LogInPage />} />
         <Route path="HomePage" element={<HomePage />}></Route>
-        <Route path="Chats" element={<Chats />}></Route>
         <Route path="Specialist" element={<Specialist />}></Route>
         <Route path="AllSpecialist" element={<AllSpecialist />}></Route>
-        <Route path="AllSpecialistAdmin" element={<AllSpecialistAdmin />}></Route>
         <Route path="Post" element={<Post />}></Route>
         <Route path="AllPost" element={<AllPost />}></Route>
         <Route path="PersonalExperience" element={<PersonalExperience />}></Route>
