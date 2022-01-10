@@ -1,8 +1,11 @@
 
 import React, { Component } from "react";
 import axios, { Axios } from "axios"
-import { Card } from "stream-chat-react";
-
+import Container from 'react-bootstrap/Container';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Card from 'react-bootstrap/Card'
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button';
 export default class AllPost extends Component {
     constructor(props) {
         super(props);
@@ -19,49 +22,80 @@ export default class AllPost extends Component {
         });
     }
     deleteSpecialist(title) {
-        console.log("inside deleteHandler")
-        axios.delete(`/api/post/delete/${title}`)
-            .then(res => {
-                const Post = this.state.Post.filter(item => item.title !== title);
-                this.setState({ Post });
+        let m = localStorage.getItem("logIn")
+        if (m == "authenticatedADMIN") {
+            console.log("inside deleteHandler")
+            axios.delete(`/api/post/delete/${title}`)
+                .then(res => {
+                    const Post = this.state.Post.filter(item => item.title !== title);
+                    this.setState({ Post });
 
-            })
+                })
+        }
+        else { alert(" JUST FOR ADMIN !!") }
     }
     render() {
-                return (
-                    <div>
+        return (
+            // <div>
 
-                        <table >
-                            <thead>
-                                <tr>
-                                    <th >title</th>
-                                    <th >Text</th>
-                                    
-                                    <th >image</th>
-                                   <th >SpecialistName</th> 
-                                   <th >Email</th>
-                                   <th >phone</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                {this.state.Post.map((item => (
-                                    <tr key={item.title}>
-                                        <td>{item.title}</td>
-                                        <td>{item.text}</td>
-                                        <td><img height="100" width="100" src={item.image} /></td>
-                                        <td>{item.specialist.specialistName}</td>
-                                        <td>{item.specialist.email}</td>
-                                        <td>{item.specialist.phone}</td>
-                                        {/* <td><button onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</button></td> */}
+            //     <Container className="Container" >
 
-                                    </tr>
-                                )))
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+            //         {this.state.Post.map((item => (
+            //             <CardGroup key={item.title >
+            //                 <Card className="item"  >
+            //                     <Card.Body  >
+            //                         <Card.Title>{item.title}</Card.Title>
+            //                         <Card.Img height="300" width="100" src={item.image} />
+            //                         <Card.Text  >{item.text} </Card.Text>
+            //                         <Card.Text  >{item.specialist.specialistName} </Card.Text>
+            //                         <Card.Text  >{item.specialist.email} </Card.Text>
+            //                         <Card.Text  >{item.specialist.phone} </Card.Text>
+            //                         <Button onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</Button>
+            //                     </Card.Body>
+            //                 </Card>
+            //             </CardGroup>
+
+            //                   )))
+                        
+
+            // </Container>
+                        
+            //         </div >
+            <div>
+
+            {/* <table >
+                    <thead>
+                        <tr>
+
+                            <th >Text</th> 
+                            <th >image</th>
+                            <th >userName</th> 
+                        </tr>
+                    </thead>
+                    <tbody> */}
+            <Container className="Container" >
+
+                {this.state.Post.map((item => (
+                    <CardGroup key={item.id}>
+                        <Card className="item"  >
+                            
+                            <Card.Body  >
+                            <Card.Title>{item.title}</Card.Title>
+                                     <Card.Img height="300" width="100" src={item.image} />
+                                    <Card.Text  >{item.text} </Card.Text>
+                                    <Card.Text  >specialistName: {item.specialist.specialistName} </Card.Text>
+                                    <Card.Text  >email:{item.specialist.email} </Card.Text>
+                                     <Card.Text  >phone:{item.specialist.phone} </Card.Text>
+                                    <Button variant="btn btn-secondary btn-lg" onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</Button>
+                            </Card.Body>
+                        </Card>
+                    </CardGroup>
+                )))
+                }
+
+            </Container>
+        </div >
 
                 );
-            }
-        }
+    }
+}

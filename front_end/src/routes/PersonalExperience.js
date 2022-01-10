@@ -16,16 +16,17 @@ export default function PersonalExperience() {
     image: image,
     user: { userName: userName }
   }
+ 
 
   function post() {
-    let m = sessionStorage.getItem("logIn")
+    let m =  localStorage.getItem("logIn");
     console.log(m)
-    if (m != "authenticatedADMIN" ) {
+    if (m =! "authenticatedADMIN" ) {
       console.log("in ")
       console.log(myData)
       alert("Log in first") 
     }
-    else if ( m != "authenticatedUSER"){ 
+    else if ( m =! "authenticatedUSER"){ 
       alert("Log in first") }
     else { 
       axios({

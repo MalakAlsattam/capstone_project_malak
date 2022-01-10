@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link,Outlet } from "react-router-dom";
 import '../index.css'
 import { Button } from "react-bootstrap";
+import HomePage from "./HomePage";
 
 export default function LogInPage(props) {
   const [userName, setmyUsername] = useState("")
@@ -54,21 +55,28 @@ export default function LogInPage(props) {
         if (response.data == "authenticatedADMIN") {
           //console.log("in")
           
-          sessionStorage.setItem("logIn","authenticatedADMIN");
-          sessionStorage.setItem("username",userName);
+          //sessionStorage.setItem("logIn","authenticatedADMIN");
+          // setmyUsername(userName)
+          // localStorage.setItem("username",userName);
           // props.handleLogin(response.data)
+          localStorage.setItem("logIn", "authenticatedADMIN");
+          window.open("HomePage","_self") 
         }
-        else if(response.data == "authenticatedUSER"){ sessionStorage.setItem("logIn","authenticatedUSER");}
+        else if(response.data == "authenticatedUSER"){ 
+          // sessionStorage.setItem("logIn","authenticatedUSER");
+          localStorage.setItem("logIn", "authenticatedUSER");
+          window.open("HomePage","_self") 
+        }
         // props.handleLogin(response.data)}
         else { setmessage("Your username or Passwrd is invalid. Please try again")
-        sessionStorage.setItem("logIn", "no one log in ");
+        // localStorage.setItem("logIn", "no one log in ");
       }
       })
     console.log(check)
-   
+  
 
   }
-
+ 
   function deleteUser() {
     console.log("inside deleteHandler")
     console.log(userName)
@@ -86,11 +94,11 @@ export default function LogInPage(props) {
         password <input type="password" onChange={(event) => { setmypassword(event.target.value) }} /><br></br>
        </h5>
        <h2>
-      <button type="button" class="btn btn-outline-dark" onClick={Login}>Log in</button>
+        <button type="button" class="btn btn-outline-dark" onClick={Login}>Log in</button>
       <button  type="button" class="btn btn-outline-dark" onClick={SignUp}>Sign Up</button>
       </h2>
-      <p>{check}</p>{/* <Button name="button" onClick={deleteUser}>delete your account </Button> */}
-      <p>{message}</p> 
+      <h5>{check}{/* <Button name="button" onClick={deleteUser}>delete your account </Button> */}
+     {message}</h5>
       </div>
 
 );

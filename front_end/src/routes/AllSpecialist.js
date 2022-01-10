@@ -86,7 +86,7 @@ export default class AllSpecialist extends Component {
         });
     }
     deleteSpecialist(specialistName) {
-        let m=sessionStorage.getItem("logIn")
+        let m= localStorage.getItem("logIn");
         if(m=="authenticatedADMIN"){
         console.log("inside deleteHandler")
         axios.delete(`/api/specialist/delete/${specialistName}`)

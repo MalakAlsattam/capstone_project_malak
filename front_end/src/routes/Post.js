@@ -3,6 +3,7 @@ import axios from "axios"
 import { useState } from "react";
 import LogInPage from "./LogInPage";
 import '../index.css'
+import swal from "sweetalert"
 export default function Post() {
   const [title, setTitle] = useState("")
   const [text, setText] = useState("")
@@ -18,7 +19,8 @@ export default function Post() {
   }
 
   function post() {
-  
+    let m = localStorage.getItem("logIn");
+    if (m == "authenticatedADMIN") {
     console.log("in ")
     console.log(myData)
     axios({
@@ -27,7 +29,8 @@ export default function Post() {
       data:
         myData
 
-    });
+    });window.open("AllPost","_self")}
+    else{ swal("THE POST JUST FOR ADMIN !!") }
   }
 
   return (
