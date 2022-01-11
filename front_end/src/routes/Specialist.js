@@ -3,7 +3,7 @@ import axios from "axios"
 import { useState } from "react";
 import '../index.css'
 import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import swal from "sweetalert"
 
 
 export default function Specialist() {
@@ -29,9 +29,6 @@ export default function Specialist() {
 
   function post() {
     let m = localStorage.getItem("logIn")
-
-    // console.log("in ")
-    // console.log(myData)
     if (m == "authenticatedADMIN") {
       axios({
         method: "post",
@@ -41,7 +38,7 @@ export default function Specialist() {
          
       });navigate("/AllSpecialist") ;
     }
-    else { alert(" JUST FOR ADMIN !!") }
+    else {  swal(" JUST FOR ADMIN !!") }
   }
 
   return (

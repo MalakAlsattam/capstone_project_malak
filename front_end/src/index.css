@@ -1,5 +1,5 @@
 body {
- 
+ /* background:url(https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MzN8MzQ3NTcxfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60); */
   background: url(https://images.pexels.com/photos/4250573/pexels-photo-4250573.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-size: cover;
 
@@ -7,12 +7,12 @@ body {
 
 .loginBox {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 350px;
   height: 500px;
-  padding: 90px 50px;
+  padding: 90px 60px;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.5);
 }

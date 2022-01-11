@@ -5,10 +5,10 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
-import './in.css'
+import "../CSS/in.css"
 import { Outlet, Link } from "react-router-dom";
 import AllComments from "./AllComments";
-
+import swal from "sweetalert"
 export default class AllPersonalExperience extends Component {
     constructor(props) {
         super(props);
@@ -42,7 +42,7 @@ export default class AllPersonalExperience extends Component {
                     this.setState({ personalExperience });
 
                 })
-        } else { alert("THE DELETE BUTTON JUST FOR ADMIN !!") }
+        } else { swal("THE DELETE BUTTON JUST FOR ADMIN !!") }
 
     }
     sendPost = (pExpId, userName) => {
@@ -64,7 +64,7 @@ export default class AllPersonalExperience extends Component {
 
             });
         }
-        else { alert("LOG IN FIRST") }
+        else { swal("LOG IN FIRST") }
     }
     //  changID=(personalExperienceId) => {
     //     console.log("calling allcomments");
@@ -88,13 +88,13 @@ export default class AllPersonalExperience extends Component {
                             </tr>
                         </thead>
                         <tbody> */}
-                <Container className="Container" >
+                <Container  >
 
                     {this.state.personalExperience.map((item => (
                         <CardGroup key={item.id}>
                             <Card className="item"  >
                                 <Card.Img height="300" width="100" src={item.image} />
-                                <Card.Body  >
+                                <Card.Body className="body1" >
                                     <Card.Title>{item.user.userName}</Card.Title>
                                     <Card.Text  >{item.text}</Card.Text>
 

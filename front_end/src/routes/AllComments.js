@@ -5,7 +5,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState , useEffect} from "react";
-import './in.css'
+import "../CSS/in.css"
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import changID from "./AllPersonalExperience"

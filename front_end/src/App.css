@@ -1,118 +1,163 @@
-/* Icon set - http://ionicons.com
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-.snip1268 {
-  font-family: 'Raleway', Arial, sans-serif;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  min-width: 220px;
-  max-width: 310px;
-  width: 100%;
-  color: #333333;
-  text-align: center;
-  background-color: #ffffff;
-  line-height: 1.6em;
+/* .site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
 }
-.snip1268 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.6s ease;
-  transition: all 0.6s ease;
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
 }
-.snip1268 .image {
-  position: relative;
+.site-footer hr.small
+{
+  margin:20px 0
 }
-.snip1268 img {
-  max-width: 100%;
-  vertical-align: top;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
 }
-.snip1268 .icons,
-.snip1268 .add-to-cart {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  opacity: 0;
+.site-footer a
+{
+  color:#737373;
 }
-.snip1268 .icons {
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-  top: 20px;
-  display: flex;
-  justify-content: space-between;
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
 }
-.snip1268 .icons a {
-  width: 32.5%;
-  background: #ffffff;
+.footer-links
+{
+  padding-left:0;
+  list-style:none
 }
-.snip1268 .icons a:hover {
-  background: #000000;
+.footer-links li
+{
+  display:block
 }
-.snip1268 .icons a:hover i {
-  color: #ffffff;
-  opacity: 1;
+.footer-links a
+{
+  color:#737373
 }
-.snip1268 .icons i {
-  line-height: 46px;
-  font-size: 20px;
-  color: #000000;
-  text-align: center;
-  opacity: 0.7;
-  margin: 0;
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
 }
-.snip1268 .add-to-cart {
-  position: absolute;
-  bottom: 20px;
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
-  font-size: 0.8em;
-  color: #000000;
-  line-height: 46px;
-  letter-spacing: 1.5px;
-  background-color: #ffffff;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
+.footer-links.inline li
+{
+  display:inline-block
 }
-.snip1268 .add-to-cart:hover {
-  background: #000000;
-  color: #ffffff;
+.site-footer .social-icons
+{
+  text-align:right
 }
-.snip1268 figcaption {
-  padding: 20px 20px 30px;
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
 }
-.snip1268 h2,
-.snip1268 p {
-  margin: 0;
-  text-align: left;
+.copyright-text
+{
+  margin:0
 }
-.snip1268 h2 {
-  margin-bottom: 10px;
-  font-weight: 700;
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
 }
-.snip1268 p {
-  margin-bottom: 15px;
-  font-size: 0.85em;
-  font-weight: 500;
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
 }
-.snip1268 .price {
-  font-size: 1.3em;
-  opacity: 0.5;
-  font-weight: 700;
-  text-align: right;
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
 }
-.snip1268:hover img,
-.snip1268.hover img {
-  opacity: 0.8;
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
 }
-.snip1268:hover .icons,
-.snip1268.hover .icons,
-.snip1268:hover .add-to-cart,
-.snip1268.hover .add-to-cart {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;            
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
 } */
-
