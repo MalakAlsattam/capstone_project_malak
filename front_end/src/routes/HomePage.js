@@ -79,7 +79,9 @@ export default function HomePage() {
         </div>
       </div>
 
-
+<div>
+  <p>if you need some helpe</p>
+</div>
 
     </div>
 

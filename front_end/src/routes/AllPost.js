@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card'
 //import 'bootstrap/dist/css/bootstrap.css';
-import "../CSS/in.css"
+import "../CSS/AllPost.css"
 import Button from 'react-bootstrap/Button';
 import swal from "sweetalert"
 export default class AllPost extends Component {
@@ -38,33 +38,29 @@ export default class AllPost extends Component {
     }
     render() {
         return (
-           
+
             <div>
 
-          
-            <Container className="Container" >
 
-                {this.state.Post.map((item => (
-                    <CardGroup key={item.id}>
-                        <Card className="item"  >
-                            
-                            <Card.Body className="body" >
-                            <Card.Title>{item.title}</Card.Title>
-                                     <Card.Img height="300" width="100" src={item.image} />
-                                    <Card.Text  >{item.text} </Card.Text>
-                                    <Card.Text  >specialistName: {item.specialist.specialistName} </Card.Text>
-                                    <Card.Text  >email:{item.specialist.email} </Card.Text>
-                                     <Card.Text  >phone:{item.specialist.phone} </Card.Text>
-                                    <Button variant="btn btn-secondary btn-lg" onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</Button>
-                            </Card.Body>
-                        </Card>
-                    </CardGroup>
-                )))
-                }
+                <div className="container3">
 
-            </Container>
-        </div >
+                    {this.state.Post.map((item => (
+                        <div className="card3" key={item.id}>
 
-                );
+
+                           <h4> {item.title}</h4>
+                            <img height="200" width="400" src={item.image} />
+                               <div>{item.text}<br></br>
+                           
+                           by: {item.specialist.specialistName}<br></br>
+                            {/* email:{item.specialist.email}<br></br>
+                            phone:{item.specialist.phone}<br></br> */}
+                            <Button variant="btn btn-secondary btn-lg" onClick={(e) => this.deleteSpecialist(item.title, e)}>delete</Button>
+                            </div>
+                        </div>)))
+                    }
+                </div></div>
+
+        );
     }
 }

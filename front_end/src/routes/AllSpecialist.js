@@ -1,12 +1,12 @@
 
 import React, { Component } from "react";
 import axios, { Axios } from "axios"
-import Container from 'react-bootstrap/Container';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Card from 'react-bootstrap/Card'
-import 'bootstrap/dist/css/bootstrap.css';
+// import Container from 'react-bootstrap/Container';
+// import CardGroup from 'react-bootstrap/CardGroup';
+// import Card from 'react-bootstrap/Card'
+// import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
-import "../CSS/in.css"
+import "../CSS/Allspecialist.css"
 import swal from "sweetalert"
 
 export default class AllSpecialist extends Component {
@@ -45,33 +45,26 @@ export default class AllSpecialist extends Component {
 
 
 
-                <Container className="Container" >
-                    {this.state.specialist.map((item => (
-
-                        <CardGroup key={item.specialistName}>
-
-                            <Card className="item"  >
-
-                                <Card.Img className="img" src={item.image} />
-                                <Card.Body className="body1"  >
-                                    <Card.Title>specialistName :{'  '} {item.specialistName}</Card.Title>
-                                    <Card.Text> email :{'  '}{item.email}</Card.Text>
-                                    <Card.Text> phone : {'  '}{item.phone}</Card.Text>
-                                    <Card.Text> moreInfo :{'  '}{item.moreInfo}</Card.Text>
-
-
-                                    <Button variant="btn btn-secondary btn-lg" onClick={(e) => this.deleteSpecialist(item.specialistName, e)}>delete</Button>
-                                </Card.Body>
-                            </Card>
-                        </CardGroup>
-
-
-                    )))
-                    }
-                </Container>
-
-
-            </div>
+               
+                <div className="container1">
+                {this.state.specialist.map((item => (
+                    <div className="card1" key={item.specialistName}>
+                        <table>
+                            <tr>  
+                                <td><img height={130} width={150}src ={item.image}/></td>
+                      
+                        <td>
+                            <h4 style={{color:"#48594F"}}><b >Name :</b>{'  '} {item.specialistName}</h4><br></br>
+                            <h4 style={{color:"#48594F"}}> <b> email :</b>{'  '}{item.email}</h4><br></br>
+                            <h4 style={{color:"#48594F"}}><b>phone : </b>{'  '}{item.phone}</h4><br></br>
+                            <h4 style={{color:"#48594F"}}> <b>moreInfo :</b>{'  '}{item.moreInfo}</h4>
+                            </td></tr>
+                            </table>
+                         <div>    <button type="button" class="btn btn-outline-danger" onClick={(e) => this.deleteSpecialist(item.specialistName, e)}>delete</button></div>
+                       
+                    </div>)))
+                }
+            </div></div>
 
         );
     }

@@ -1,0 +1,40 @@
+.card2 {
+    
+    border: black;
+
+     width: 500px;
+     height: 450px;
+     padding: 70px 20px;
+    background-color: #b8bebde8;
+    text-align: center;
+   
+  }
+  .container2 {
+    display: grid;
+    
+    background-color: rgba(243, 243, 243, 0.733);
+    padding: 10px; grid-column-gap: 50px;
+
+    grid-template-columns: auto auto;
+    justify-content: center;
+  }
+  .textarea {
+    width: 50%;
+    height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+/*   
+  .container {
+    align-items: center; 
+    justify-content: center;
+    grid-template-columns: auto auto;
+    /* background-color: rgba(243, 243, 243, 0.733); */
+    /* padding: 10px; grid-column-gap: 50px;
+   
+
+  } */ 
