@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios"
 import { useState } from "react";
-import '../index.css'
+import '../CSS/Post.css'
 import { useNavigate } from 'react-router-dom';
 import swal from "sweetalert"
 
@@ -19,7 +19,8 @@ export default function Specialist() {
     image: image,
     phone: phone,
     moreInfo: moreInfo
-  }
+  } 
+   let login = localStorage.getItem("logIn");
   axios({
     method: 'post',
     url: 'api/specialist/add',
@@ -28,8 +29,7 @@ export default function Specialist() {
   })
 
   function post() {
-    let m = localStorage.getItem("logIn")
-    if (m == "authenticatedADMIN") {
+   
       axios({
         method: "post",
         url: "api/specialist/add",
@@ -37,15 +37,16 @@ export default function Specialist() {
           myData
          
       });navigate("/AllSpecialist") ;
-    }
-    else {  swal(" JUST FOR ADMIN !!") }
+    
+    
   }
 
   return (
 
     <div class="PostBox">
-      <h2>Specialist Rigister:  </h2><br></br>
-      <h5>
+      <h2>Specialist Rigister Just For Admin:  </h2><br></br>
+
+      {  login=="authenticatedADMIN"&& <div>  <h5>
         specialist Name <input type="text" name="specialistName" onChange={(event) => { setSpecialistName(event.target.value) }} /><br></br>
         Email <input type="text" name="email" onChange={(event) => { setEmail(event.target.value) }} /><br></br>
         image<input type="text" name="image" onChange={(event) => { setimage(event.target.value) }} /><br></br>
@@ -54,7 +55,7 @@ export default function Specialist() {
       </h5>
       <h2>
        <button type="button" class="btn btn-outline-dark" onClick={post}>registration</button></h2>
-
+       </div>}
 
     </div>
   );

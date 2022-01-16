@@ -1,0 +1,11 @@
+.container4 {
+    display: grid;
+    background-color: rgba(243, 243, 243, 0.733);
+    padding: 10px; grid-row-gap: 20px;
+    grid-template-columns: auto ;
+    justify-content: center;
+  }
+  .card4 {
+    background-color: #b8bebde8;
+    text-align: center;
+  }

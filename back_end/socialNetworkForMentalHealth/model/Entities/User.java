@@ -17,9 +17,9 @@ public class User {
     private String password;
 
     private String roles;
-@OneToMany(mappedBy = "user" )
-@JsonIgnore
-private List<Message> messages=new ArrayList<>();
+//@OneToMany(mappedBy = "user" )
+//@JsonIgnore
+//private List<Message> messages=new ArrayList<>();
     @OneToMany(mappedBy = "user" )
     @JsonIgnore
     private List<PersonalExperience> personalExperience=new ArrayList<>();
@@ -28,12 +28,12 @@ private List<Message> messages=new ArrayList<>();
     @JsonIgnore
     private List<Comments> comments=new ArrayList<>();
 
-    public User(String userName, String password, boolean active, String roles, List<Message> messages, List<PersonalExperience> personalExperience, List<Comments> comments) {
+    public User(String userName, String password, boolean active, String roles, List<PersonalExperience> personalExperience, List<Comments> comments) {
         this.userName = userName;
         this.password = password;
 
         this.roles = roles;
-        this.messages = messages;
+
         this.personalExperience = personalExperience;
         this.comments = comments;
     }
@@ -83,12 +83,6 @@ private List<Message> messages=new ArrayList<>();
         this.password = password;
     }
 
-    public List<Message> getMessages() {
-        return messages;
-    }
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
 }
 

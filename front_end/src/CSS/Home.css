@@ -22,3 +22,8 @@
 text-shadow: rgb(22, 21, 21);}
 h1{text-align: center;}
 .image{left: 10px;}
+
+.last-thing{
+  background: rgba(0, 0, 0, 0.5); 
+  text-align: center;
+}

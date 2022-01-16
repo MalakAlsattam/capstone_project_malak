@@ -2,15 +2,16 @@ import React from "react";
 import "../CSS/in.css"
 import 'bootstrap/dist/css/bootstrap.css';
 import '../CSS/Home.css'
+import { Link } from "react-router-dom";
 export default function HomePage() {
 
   return (
 
     <div>
-  <h1>We Are Here For You ..</h1>
+      <h1>We Are Here For You ..</h1>
       <div class="card-master">
+
       
-        {/* <div class="card mb-3" style="max-width: 540px;"> */}
         <div class="row g-0">
           <div class="col-md-4">
             <img height={700} src="https://images.unsplash.com/photo-1541996206728-9e1c3466a148?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1vb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" />
@@ -49,7 +50,6 @@ export default function HomePage() {
 
       <div class="card-master">
         <h1>We Are Here For You ..</h1>
-        {/* <div class="card mb-3" style="max-width: 540px;"> */}
         <div class="row g-0">
           <div class="col-md-4">
             <img className="image" height={520} width={470} src="https://images.unsplash.com/photo-1465321897912-c692b37a09a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" />
@@ -66,22 +66,26 @@ export default function HomePage() {
                 A commonly used type of therapy, cognitive-behavioral therapy</p>
               <h4 class="card-title"></h4>
               <p class="card-text">
-              People often think of depression as an adult problem, not something that affects children,
-               but children, especially adolescents may commonly suffer from depression. The condition interferes 
-               with their ability to perform well in school and develop and maintain relationships, and can have 
-               lasting repercussions, especially if it goes unnoticed. What’s more, in children and adolescents,
-                depression is often accompanied by behavioral problems,  other mental disorders. Unfortunately, 
+                People often think of depression as an adult problem, not something that affects children,
+                but children, especially adolescents may commonly suffer from depression. The condition interferes
+                with their ability to perform well in school and develop and maintain relationships, and can have
+                lasting repercussions, especially if it goes unnoticed. What’s more, in children and adolescents,
+                depression is often accompanied by behavioral problems,  other mental disorders. Unfortunately,
                 in children and adolescents, depression can manifest differently than it does in adults, so parents
-                 are not always able to recognize the problem.</p>
-             
+                are not always able to recognize the problem.</p>
+
             </div>
           </div>
         </div>
       </div>
 
-<div>
-  <p>if you need some helpe</p>
-</div>
+      <div className="last-thing">
+        <br></br>
+        <h4 class="card-title">if you need some help talk with Specialist</h4>
+          <br></br>
+          <Link to="/AllSpecialist"><button type="button" class="btn btn-outline-light"> go to see the all Specialist </button></Link>
+          <br></br><br></br>
+      </div>
 
     </div>
 

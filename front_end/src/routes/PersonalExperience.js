@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios"
 import { useState } from "react";
-import LogInPage from "./LogInPage";
-import '../index.css'
+import '../CSS/Post.css'
 import swal from "sweetalert"
-
+import { useNavigate } from 'react-router-dom';
 export default function PersonalExperience() {
 
   const [text, setText] = useState("")
@@ -16,31 +15,33 @@ export default function PersonalExperience() {
     image: image,
     user: { userName: userName }
   }
-
-
+  const navigate = useNavigate();
+  let username= localStorage.getItem("username")
+    console.log(username)
   function post() {
-    let m = localStorage.getItem("logIn");
-    console.log(m)
-    if (m == "authenticatedADMIN") {
+    let login = localStorage.getItem("logIn");
+    console.log(login)
+  
+    if (login == "authenticatedADMIN"&&username==userName) {
       axios({
         method: "post",
         url: "api/personalExperience/add",
         data:
           myData
 
-      });
+      });  navigate("/AllPersonalExperience")
     }
-    else if (m == "authenticatedUSER") {
+    else if (login == "authenticatedUSER"&&username==userName) {
       axios({
         method: "post",
         url: "api/personalExperience/add",
         data:
           myData
 
-      });
+      });  navigate("/AllPersonalExperience")
     }
     else {
-      swal("Log in first")
+      swal("Log in first please..")
     }
   }
 

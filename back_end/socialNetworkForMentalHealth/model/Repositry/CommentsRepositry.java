@@ -1,7 +1,6 @@
 package com.example.socialNetworkForMentalHealth.model.Repositry;
 
 import com.example.socialNetworkForMentalHealth.model.Entities.Comments;
-import com.example.socialNetworkForMentalHealth.model.Entities.Message;
 import com.example.socialNetworkForMentalHealth.model.Entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -17,7 +17,8 @@
     box-shadow: 0 4px 8px 0 rgba(107, 106, 106, 0.2);
     background-color: rgba(243, 243, 243, 0.733);
     padding: 10px; grid-column-gap: 50px;
-    
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
     /* background-color: rgba(0, 0, 0, 0.288); */
     grid-template-columns: auto auto;
     justify-content: center;

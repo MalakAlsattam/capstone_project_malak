@@ -1,9 +1,7 @@
 package com.example.socialNetworkForMentalHealth.controller;
 
 import com.example.socialNetworkForMentalHealth.model.Entities.Comments;
-import com.example.socialNetworkForMentalHealth.model.Entities.Message;
 import com.example.socialNetworkForMentalHealth.model.services.CommentsService;
-import com.example.socialNetworkForMentalHealth.model.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
