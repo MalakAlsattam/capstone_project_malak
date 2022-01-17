@@ -17,6 +17,13 @@ public interface UserRepositry extends JpaRepository<User,String > {
     @Query("SELECT password FROM User  where userName = :userName")
     String findPassword(@Param("userName") String userName);
 
+//    @Query("" +
+//            "SELECT CASE WHEN COUNT(u) > 0 THEN " +
+//            "TRUE ELSE FALSE END " +
+//            "FROM User u " +
+//            "WHERE u.userName = ?1"
+//    )
+//    Boolean selectExistsUsername(String userName);
 
 
 }

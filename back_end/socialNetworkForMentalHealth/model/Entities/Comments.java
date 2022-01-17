@@ -24,6 +24,10 @@ public class Comments  {
         this.personalExperience = personalExperience;
     }
 
+    public Comments(String comment) {
+        this.comment = comment;
+    }
+
     public Comments() {
     }
 

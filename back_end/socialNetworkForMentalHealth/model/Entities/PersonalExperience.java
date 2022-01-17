@@ -31,6 +31,12 @@ public class PersonalExperience {
         this.user = user;
         this.comments = comments;
     }
+
+    public PersonalExperience(String text, String image) {
+        this.text = text;
+        this.image = image;
+    }
+
     public List<Comments> getComments() {
         return comments;
     }

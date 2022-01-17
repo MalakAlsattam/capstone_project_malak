@@ -28,7 +28,7 @@ public class User {
     @JsonIgnore
     private List<Comments> comments=new ArrayList<>();
 
-    public User(String userName, String password, boolean active, String roles, List<PersonalExperience> personalExperience, List<Comments> comments) {
+    public User(String userName, String password, String roles, List<PersonalExperience> personalExperience, List<Comments> comments) {
         this.userName = userName;
         this.password = password;
 
@@ -39,6 +39,12 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(String userName, String password, String roles) {
+        this.userName = userName;
+        this.password = password;
+        this.roles = roles;
     }
 
     public List<Comments> getComments() {
