@@ -10,35 +10,45 @@ export default function PersonalExperience() {
   const [image, setimage] = useState("")
   const [userName, setuserName] = useState("")
 
+
+  //make object for  PersonalExperience data
   let myData = {
     text: text,
     image: image,
     user: { userName: userName }
   }
   const navigate = useNavigate();
-  let username= localStorage.getItem("username")
-    console.log(username)
+  let username = localStorage.getItem("username")
+  console.log(username)
+
+  //this function for add new PersonalExperience
   function post() {
     let login = localStorage.getItem("logIn");
     console.log(login)
-  
-    if (login == "authenticatedADMIN"&&username==userName) {
+
+    if (login == "authenticatedADMIN" && username == userName) {
       axios({
         method: "post",
-        url: "api/personalExperience/add",
+        url: "https://help-hope-backend.herokuapp.com/api/personalExperience/add",
         data:
           myData
 
-      });  navigate("/AllPersonalExperience")
+      });
+      //after post  data will go to  AllPersonalExperience page 
+
+      navigate("/AllPersonalExperience")
     }
-    else if (login == "authenticatedUSER"&&username==userName) {
+    else if (login == "authenticatedUSER" && username == userName) {
       axios({
         method: "post",
-        url: "api/personalExperience/add",
+        url: "https://help-hope-backend.herokuapp.com/api/personalExperience/add",
         data:
           myData
 
-      });  navigate("/AllPersonalExperience")
+      });
+      //after post  data will go to  AllPersonalExperience page 
+
+      navigate("/AllPersonalExperience")
     }
     else {
       swal("Log in first please..")

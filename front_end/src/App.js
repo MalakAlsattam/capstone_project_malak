@@ -2,6 +2,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import swal from "sweetalert"
+
 export default function App() {
 
   let m = localStorage.getItem("logIn")
@@ -10,12 +11,13 @@ export default function App() {
 
 
   return (
+  
     <div>
 
-
+<div>
       <nav class="navbar navbar-dark bg-dark">
 
-
+<img src="https://t3.ftcdn.net/jpg/01/90/34/42/240_F_190344269_CCb6WX2CgD60Hl1Y9aVrW8ChdwCCrjCu.jpg" width={80} height={60}></img>
         <Link class="text-muted" to="/LogInPage" >
           <svg xmlns="http://www.w3.org/2000/svg"
             width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
@@ -46,7 +48,9 @@ export default function App() {
           </svg></button>
       </nav>
       <Outlet />
+      </div>
+     
 
-    </div>
+</div> 
   );
 }

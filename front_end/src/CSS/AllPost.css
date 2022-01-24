@@ -1,7 +1,6 @@
 .card3 {
     
     border: black;
-
      width: 500px;
      height: 480px;
      padding: 70px 20px;
@@ -11,10 +10,9 @@
   }
   .container3 {
     display: grid;
-    
     background-color: rgba(243, 243, 243, 0.733);
-    padding: 10px; grid-column-gap: 50px;
-
+    padding: 10px;
+    grid-column-gap: 50px;
     grid-template-columns: auto auto;
     justify-content: center;grid-row-gap: 20px;
     grid-column-gap: 20px;

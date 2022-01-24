@@ -12,9 +12,12 @@ import Post from "./routes/Post"
 import AllPost from "./routes/AllPost"
 import AllPersonalExperience from "./routes/AllPersonalExperience"
 import AllComments from './routes/AllComments'
+import Welcom from './routes/Welcom'
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
+    
+    <Route path="/" element={<Welcom />}/>
       <Route path="/" element={<App />}>
         <Route path="LogInPage" element={<LogInPage />} />
         <Route path="HomePage" element={<HomePage />}></Route>
